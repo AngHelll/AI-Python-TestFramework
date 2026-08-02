@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "ai-python-lab": {
+      "command": "bash",
+      "args": [
+        "scripts/mcp_lab_server_launch.sh"
+      ]
+    }
+  }
+}

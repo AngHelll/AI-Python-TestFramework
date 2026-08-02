@@ -1,0 +1,45 @@
+{
+  "contract": "gate-timing.v1",
+  "updated": "2026-08-01T20:16:44.198363+00:00",
+  "checks": [
+    {
+      "name": "duplicate_skip_propose",
+      "ok": true,
+      "detail": "20260801T201644Z-7cee68a9"
+    },
+    {
+      "name": "token_propose_awaiting_gate3",
+      "ok": true,
+      "detail": "20260801T201644Z-e2128823"
+    },
+    {
+      "name": "record_human_waits",
+      "ok": true,
+      "detail": "210000.0"
+    },
+    {
+      "name": "tools_runner_reachable",
+      "ok": true,
+      "detail": "0.1ms"
+    },
+    {
+      "name": "human_command_log",
+      "ok": true,
+      "detail": "rc=0 logs=8"
+    },
+    {
+      "name": "parse_duration",
+      "ok": true,
+      "detail": "1:30 / 2m"
+    }
+  ],
+  "sample_session_ids": [
+    "20260801T201644Z-7cee68a9",
+    "20260801T201644Z-2058962f"
+  ],
+  "scenarios": [
+    "duplicate",
+    "login-neg",
+    "token-refresh"
+  ]
+}

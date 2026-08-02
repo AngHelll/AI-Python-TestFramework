@@ -1,0 +1,27 @@
+# analysis.v1 — Functional analysis output contract
+# Producer: automation-analyst
+# Consumer: Human Gate 1 → automation-planner
+# No code. No file patches.
+
+request_id: ""          # required — e.g. AUTH-TOKEN-REFRESH
+summary: ""             # required — 1–3 sentences, facts vs assumptions separated in prose if needed
+
+proposed_coverage:      # required — at least one list may be empty if already covered
+  positive: []
+  negative: []
+  edge: []
+
+assumptions: []         # required — may be empty list; never omit key
+open_questions: []      # required
+out_of_scope: []        # required
+
+evidence:               # required — min 1 when target repo was searched; each item:
+  - path: ""            # repo-relative path
+    reason: ""          # why this path was consulted
+
+# Optional metadata (recommended)
+meta:
+  target: ""            # labs/csharp-reqnroll-lab | python-root
+  domain: ""
+  contract: analysis.v1
+  already_covered: false  # true when Analyst concludes no new automation (eval 003 pattern)

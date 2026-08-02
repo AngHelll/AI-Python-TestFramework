@@ -1,0 +1,26 @@
+{
+  "bad_proposal_id": "20260801T231555Z-15f3c80d",
+  "good_proposal_id": "20260801T231555Z-979b64cc",
+  "checks": [
+    {
+      "name": "bad_recipe_blocked",
+      "ok": true,
+      "detail": "['STAB-SLEEP-CS']"
+    },
+    {
+      "name": "good_recipe_awaiting_gate3",
+      "ok": true,
+      "detail": "awaiting_gate3"
+    },
+    {
+      "name": "good_apply_tests_restore",
+      "ok": false,
+      "detail": "tests=False status=tests_failed"
+    },
+    {
+      "name": "refuse_without_gate3",
+      "ok": true,
+      "detail": "refusing apply without --gate3-approved"
+    }
+  ]
+}

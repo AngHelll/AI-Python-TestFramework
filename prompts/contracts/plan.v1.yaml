@@ -1,0 +1,40 @@
+# plan.v1 — Technical plan output contract
+# Producer: automation-planner
+# Consumer: Human Gate 2 → (optional) supervised implementation
+# No patches in planning phase.
+
+request_id: ""          # required — must match approved analysis
+
+reuse:                  # required — search before fill; empty lists OK if justified in evidence
+  builders: []
+  validators: []
+  steps: []
+  pages_or_clients: []
+
+create_only_if_needed: []  # required — each entry MUST include justification inline
+  # example: "TokenRefreshSteps — feature exists without bindings"
+
+files_likely_affected: []  # required — concrete paths, not vague areas
+
+risks:                  # required — min 1 for non-trivial work; empty only if already_covered
+  - id: ""
+    severity: low       # low | medium | high
+    note: ""
+
+implementation_steps: []  # required — ordered; no full source code blocks
+
+evidence:               # required — min 1
+  - path: ""
+    reason: ""
+
+policy_checks:          # required
+  searched_before_create: false   # must be true to pass Gate 2 if create_only_if_needed non-empty
+  no_critical_files_without_flag: false
+
+# Optional metadata
+meta:
+  target: ""
+  domain: ""
+  contract: plan.v1
+  analysis_request_id: ""   # echo of Gate-1 approved analysis
+  already_covered: false    # plan = do not create (eval 003)

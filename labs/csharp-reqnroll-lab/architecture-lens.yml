@@ -1,0 +1,49 @@
+# Dogfood: AI-Python-TestFramework/labs/csharp-reqnroll-lab
+# Place at the lab workspace ROOT as either:
+#   .architecture-lens.yml  (preferred)
+#   architecture-lens.yml   (also accepted)
+# Then: Architecture Lens → Analyze Workspace
+
+version: 1
+
+domains:
+  test-experience:
+    include:
+      - "**/tests/**/Features/**"
+      - "**/tests/**/Steps/**"
+      - "**/tests/**/Hooks/**"
+      - "**/tests/**/Support/**"
+  automation-core:
+    include:
+      - "**/src/AutomationLab/**"
+
+layers:
+  presentation:
+    include:
+      - "**/Pages/**"
+  application:
+    include:
+      - "**/Builders/**"
+      - "**/Models/**"
+      - "**/Validators/**"
+  infrastructure:
+    include:
+      - "**/Clients/**"
+
+manual: []
+
+rules:
+  # Demo rule: steps should talk to pages/services, not API clients directly
+  - id: steps-should-not-call-api-clients-directly
+    severity: warning
+    from:
+      role: Step definitions
+    cannotDependOn:
+      layer: infrastructure
+
+  - id: presentation-should-not-import-infrastructure
+    severity: warning
+    from:
+      layer: presentation
+    cannotDependOn:
+      layer: infrastructure

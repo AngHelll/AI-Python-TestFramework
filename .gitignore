@@ -21,9 +21,16 @@ wheels/
 *.egg
 MANIFEST
 
-# Virtual Environment
+# Virtual Environment & local secrets (never commit real credentials)
 .env
+.env.local
+.env.*.local
+*.pem
+*.p12
+id_rsa
+id_ed25519
 .venv
+.venv-mcp
 env/
 venv/
 ENV/
@@ -80,6 +87,25 @@ FRAMEWORK_AUDIT_REPORT.md
 
 # Archive directory (historical files)
 archive/
+
+# .NET lab
+**/bin/
+**/obj/
+*.user
+*.suo
+TestResults/
+labs/csharp-reqnroll-lab/**/bin/
+labs/csharp-reqnroll-lab/**/obj/
+
+# Local AI workflow runs / audit (machine-local; may contain paths)
+docs/ai-evolution/runs/
+.forgeone/runs/
+.forgeone/events.jsonl
+artifacts/
+
+# Architecture Lens / local IDE graphs (absolute machine paths)
+.architecture-lens/
+**/.architecture-lens/
 
 # IMPORTANT: Keep documentation
 !docs/

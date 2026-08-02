@@ -1,0 +1,435 @@
+{
+  "seeds_version": "0.2.0",
+  "k": 5,
+  "passed": 16,
+  "total": 16,
+  "recall_at_k": 1.0,
+  "cases": [
+    {
+      "id": "login-request-builder",
+      "query": "login request builder",
+      "target": "csharp",
+      "terms": [
+        "LoginRequestBuilder",
+        "Builder"
+      ],
+      "pass": true,
+      "found": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Builders/LoginRequestBuilder.cs"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Builders/LoginRequestBuilder.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature"
+      ],
+      "noise_count": 3,
+      "noise_sample": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature"
+      ],
+      "eval_ref": "001 / FS-03"
+    },
+    {
+      "id": "refresh-token-api",
+      "query": "refresh token API",
+      "target": "csharp",
+      "terms": [
+        "RefreshToken",
+        "refresh"
+      ],
+      "pass": true,
+      "found": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs",
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/TokenRefresh.feature",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Profile.feature"
+      ],
+      "noise_count": 4,
+      "noise_sample": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/TokenRefresh.feature",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Profile.feature"
+      ],
+      "eval_ref": "001"
+    },
+    {
+      "id": "token-refresh-feature",
+      "query": "token refresh feature",
+      "target": "csharp",
+      "terms": [
+        "TokenRefresh",
+        "AUTH-TOKEN-REFRESH"
+      ],
+      "pass": true,
+      "found": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/TokenRefresh.feature"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/TokenRefresh.feature",
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs"
+      ],
+      "noise_count": 2,
+      "noise_sample": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs"
+      ],
+      "eval_ref": "001"
+    },
+    {
+      "id": "invalid-login-scenario",
+      "query": "invalid login scenario",
+      "target": "csharp",
+      "terms": [
+        "AUTH-LOGIN-NEG",
+        "invalid"
+      ],
+      "pass": true,
+      "found": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature",
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Profile.feature",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/TokenRefresh.feature",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs"
+      ],
+      "noise_count": 4,
+      "noise_sample": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Profile.feature",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/TokenRefresh.feature",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs"
+      ],
+      "eval_ref": "003"
+    },
+    {
+      "id": "get-user-profile",
+      "query": "get user profile",
+      "target": "csharp",
+      "terms": [
+        "GetProfile",
+        "UserProfile"
+      ],
+      "pass": true,
+      "found": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/UserProfileValidator.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/UserProfileSteps.cs",
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Profile.feature"
+      ],
+      "noise_count": 3,
+      "noise_sample": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/UserProfileValidator.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/UserProfileSteps.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Profile.feature"
+      ],
+      "eval_ref": "002"
+    },
+    {
+      "id": "user-profile-validator",
+      "query": "user profile validator",
+      "target": "csharp",
+      "terms": [
+        "UserProfileValidator"
+      ],
+      "pass": true,
+      "found": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/UserProfileValidator.cs"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/UserProfileValidator.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/UserProfileSteps.cs"
+      ],
+      "noise_count": 1,
+      "noise_sample": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/UserProfileSteps.cs"
+      ],
+      "eval_ref": "002"
+    },
+    {
+      "id": "anti-sleep-flakiness",
+      "query": "anti sleep flakiness",
+      "target": "knowledge",
+      "terms": [
+        "Thread.Sleep",
+        "AP-03",
+        "sleep"
+      ],
+      "pass": true,
+      "found": [
+        "knowledge/anti-patterns/anti-patterns.md"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "knowledge/anti-patterns/anti-patterns.md",
+        "knowledge/examples/retrieval-seeds.json",
+        "prompts/fragments/anti-patterns.md",
+        "knowledge/examples/review/taxonomy.md",
+        "knowledge/patterns/mapping-python-csharp.md"
+      ],
+      "noise_count": 4,
+      "noise_sample": [
+        "knowledge/examples/retrieval-seeds.json",
+        "prompts/fragments/anti-patterns.md",
+        "knowledge/examples/review/taxonomy.md",
+        "knowledge/patterns/mapping-python-csharp.md"
+      ],
+      "eval_ref": "004"
+    },
+    {
+      "id": "component-catalog",
+      "query": "component catalog",
+      "target": "knowledge",
+      "terms": [
+        "component-catalog",
+        "Inventario de componentes reutilizables"
+      ],
+      "pass": true,
+      "found": [
+        "knowledge/framework/component-catalog.md"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "knowledge/framework/component-catalog.md",
+        "knowledge/examples/retrieval-seeds.json",
+        "knowledge/README.md",
+        "knowledge/examples/retrieval-seeds.md",
+        "prompts/examples/approved/03-duplicate-builder-reject.md"
+      ],
+      "noise_count": 4,
+      "noise_sample": [
+        "knowledge/examples/retrieval-seeds.json",
+        "knowledge/README.md",
+        "knowledge/examples/retrieval-seeds.md",
+        "prompts/examples/approved/03-duplicate-builder-reject.md"
+      ],
+      "eval_ref": "all"
+    },
+    {
+      "id": "account-lockout",
+      "query": "account lockout scenario",
+      "target": "csharp",
+      "terms": [
+        "AUTH-LOCKOUT",
+        "ACCOUNT_LOCKED"
+      ],
+      "pass": true,
+      "found": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/LoginResponseValidator.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature"
+      ],
+      "noise_count": 2,
+      "noise_sample": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/LoginResponseValidator.cs"
+      ],
+      "eval_ref": "lockout"
+    },
+    {
+      "id": "login-response-validator",
+      "query": "login response validator",
+      "target": "csharp",
+      "terms": [
+        "LoginResponseValidator"
+      ],
+      "pass": true,
+      "found": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/LoginResponseValidator.cs"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/LoginResponseValidator.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs"
+      ],
+      "noise_count": 2,
+      "noise_sample": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs"
+      ],
+      "eval_ref": "catalog"
+    },
+    {
+      "id": "refresh-token-data",
+      "query": "refresh token fixture data",
+      "target": "csharp",
+      "terms": [
+        "RefreshTokenData"
+      ],
+      "pass": true,
+      "found": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs",
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs"
+      ],
+      "noise_count": 1,
+      "noise_sample": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs"
+      ],
+      "eval_ref": "refresh"
+    },
+    {
+      "id": "python-login-page",
+      "query": "python login page object",
+      "target": "python",
+      "terms": [
+        "LoginPage",
+        "login_page"
+      ],
+      "pass": true,
+      "found": [
+        "pages/login_page.py"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "pages/login_page.py",
+        "features/steps/common_steps.py",
+        "features/steps/common_steps.py",
+        "features/steps/login_steps.py",
+        "features/steps/login_steps.py"
+      ],
+      "noise_count": 4,
+      "noise_sample": [
+        "features/steps/common_steps.py",
+        "features/steps/common_steps.py",
+        "features/steps/login_steps.py",
+        "features/steps/login_steps.py"
+      ],
+      "eval_ref": "python"
+    },
+    {
+      "id": "python-login-feature",
+      "query": "python login behave feature",
+      "target": "python",
+      "terms": [
+        "User Login",
+        "login.feature"
+      ],
+      "pass": true,
+      "found": [
+        "features/login.feature"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "features/login.feature"
+      ],
+      "noise_count": 0,
+      "noise_sample": [],
+      "eval_ref": "python"
+    },
+    {
+      "id": "agent-contracts",
+      "query": "agent role contracts",
+      "target": "knowledge",
+      "terms": [
+        "Agent contracts",
+        "Analyst",
+        "Builder"
+      ],
+      "pass": true,
+      "found": [
+        "knowledge/agents/contracts.md"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "knowledge/agents/contracts.md",
+        "knowledge/examples/retrieval-seeds.json",
+        "knowledge/agents/handoffs.md",
+        "prompts/fragments/anti-patterns.md",
+        "prompts/examples/approved/03-duplicate-builder-reject.md"
+      ],
+      "noise_count": 4,
+      "noise_sample": [
+        "knowledge/examples/retrieval-seeds.json",
+        "knowledge/agents/handoffs.md",
+        "prompts/fragments/anti-patterns.md",
+        "prompts/examples/approved/03-duplicate-builder-reject.md"
+      ],
+      "eval_ref": "phase8"
+    },
+    {
+      "id": "analysis-contract",
+      "query": "analysis v1 contract",
+      "target": "knowledge",
+      "terms": [
+        "analysis.v1",
+        "already_covered"
+      ],
+      "pass": true,
+      "found": [
+        "prompts/contracts/analysis.v1.yaml"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "prompts/contracts/analysis.v1.yaml",
+        "knowledge/agents/contracts.md",
+        "knowledge/agents/handoffs.md",
+        "knowledge/examples/retrieval-seeds.json",
+        "prompts/examples/approved/01-token-refresh-analysis.md"
+      ],
+      "noise_count": 4,
+      "noise_sample": [
+        "knowledge/agents/contracts.md",
+        "knowledge/agents/handoffs.md",
+        "knowledge/examples/retrieval-seeds.json",
+        "prompts/examples/approved/01-token-refresh-analysis.md"
+      ],
+      "eval_ref": "phase1"
+    },
+    {
+      "id": "review-taxonomy",
+      "query": "review findings taxonomy",
+      "target": "knowledge",
+      "terms": [
+        "DUP-BUILDER",
+        "taxonomy"
+      ],
+      "pass": true,
+      "found": [
+        "knowledge/examples/review/taxonomy.md"
+      ],
+      "missing": [],
+      "top_k_paths": [
+        "knowledge/examples/review/taxonomy.md",
+        "knowledge/examples/retrieval-seeds.json",
+        "knowledge/examples/review/README.md",
+        "knowledge/agents/contracts.md",
+        "knowledge/agents/handoffs.md"
+      ],
+      "noise_count": 4,
+      "noise_sample": [
+        "knowledge/examples/retrieval-seeds.json",
+        "knowledge/examples/review/README.md",
+        "knowledge/agents/contracts.md",
+        "knowledge/agents/handoffs.md"
+      ],
+      "eval_ref": "phase6"
+    }
+  ]
+}

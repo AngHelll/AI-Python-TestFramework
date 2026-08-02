@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "contract": "gate-timing.v1",
+  "description": "Machine stage clocks + human gate wait slots for automation lead-time measurement",
+  "required": ["contract", "session_id", "request_id", "stages", "totals"],
+  "properties": {
+    "contract": { "const": "gate-timing.v1" },
+    "stages": {
+      "type": "array",
+      "items": {
+        "required": ["name", "elapsed_ms"],
+        "properties": {
+          "name": {
+            "enum": [
+              "context",
+              "analysis",
+              "gate1_human",
+              "plan",
+              "gate2_human",
+              "propose",
+              "gate3_human"
+            ]
+          },
+          "elapsed_ms": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "totals": {
+      "required": ["machine_ms", "human_gate_ms", "wall_ms"],
+      "properties": {
+        "machine_ms": { "type": "number" },
+        "human_gate_ms": { "type": "number" },
+        "wall_ms": { "type": "number" }
+      }
+    }
+  }
+}

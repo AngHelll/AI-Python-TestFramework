@@ -1,0 +1,14 @@
+diff --git a/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/OrphanLogin.feature b/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/OrphanLogin.feature
+new file mode 100644
+index 0000000..4444444
+--- /dev/null
++++ b/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/OrphanLogin.feature
+@@ -0,0 +1,10 @@
++Feature: Orphan login without story tags
++  As a QA
++  I want a scenario without XRay-like tags
++  So the reviewer can flag UC-07
++
++  Scenario: Somebody logs in somehow
++    When I login as a valid user
++    Then the login should succeed

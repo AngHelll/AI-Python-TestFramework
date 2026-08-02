@@ -1,0 +1,285 @@
+{
+  "contract": "workflow-run.v1",
+  "run_id": "20260801T231555Z-3999f1fb",
+  "request_id": "USER-PROFILE-GET",
+  "target": "csharp",
+  "domain": "Auth",
+  "description": "Get authenticated user profile with access token.",
+  "constraints": "API only; prefer AuthApiClient.",
+  "stages": [
+    "context",
+    "analysis",
+    "gate1",
+    "plan",
+    "gate2",
+    "delivered"
+  ],
+  "tools_invoked": [
+    {
+      "tool": "find_existing_builder",
+      "invocation_id": "20260801T231555Z-ee818f89",
+      "params": {
+        "target": "csharp",
+        "terms": "GetProfile,UserProfile,Profile",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 0,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-ee818f89.json"
+    },
+    {
+      "tool": "find_existing_validator",
+      "invocation_id": "20260801T231555Z-ec4dc802",
+      "params": {
+        "target": "csharp",
+        "terms": "GetProfile,UserProfile,Profile",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 1,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-ec4dc802.json"
+    },
+    {
+      "tool": "find_reusable_step",
+      "invocation_id": "20260801T231555Z-a388b329",
+      "params": {
+        "target": "csharp",
+        "terms": "GetProfile,UserProfile,Profile",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 1,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-a388b329.json"
+    },
+    {
+      "tool": "search_similar_automation",
+      "invocation_id": "20260801T231555Z-fc46c0bd",
+      "params": {
+        "target": "csharp",
+        "terms": "GetProfile,UserProfile,Profile",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 2,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-fc46c0bd.json"
+    },
+    {
+      "tool": "inspect_service_contract",
+      "invocation_id": "20260801T231555Z-5116b9cb",
+      "params": {
+        "target": "csharp",
+        "terms": "GetProfile,UserProfile,Profile",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 1,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-5116b9cb.json"
+    },
+    {
+      "tool": "find_knowledge",
+      "invocation_id": "20260801T231555Z-0cbbd357",
+      "params": {
+        "target": "knowledge",
+        "terms": "component-catalog,LoginRequestBuilder",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 5,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-0cbbd357.json"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/UserProfileValidator.cs",
+      "reason": "find_existing_validator terms=GetProfile,UserProfile,Profile"
+    },
+    {
+      "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/UserProfileSteps.cs",
+      "reason": "find_reusable_step terms=GetProfile,UserProfile,Profile"
+    },
+    {
+      "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Profile.feature",
+      "reason": "search_similar_automation terms=GetProfile,UserProfile,Profile"
+    },
+    {
+      "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+      "reason": "inspect_service_contract terms=GetProfile,UserProfile,Profile"
+    },
+    {
+      "path": "knowledge/framework/component-catalog.md",
+      "reason": "find_knowledge for USER-PROFILE-GET"
+    },
+    {
+      "path": "knowledge/examples/retrieval-seeds.json",
+      "reason": "find_knowledge for USER-PROFILE-GET"
+    },
+    {
+      "path": "knowledge/examples/retrieval-seeds.md",
+      "reason": "find_knowledge for USER-PROFILE-GET"
+    },
+    {
+      "path": "prompts/examples/approved/03-duplicate-builder-reject.md",
+      "reason": "find_knowledge for USER-PROFILE-GET"
+    },
+    {
+      "path": "knowledge/anti-patterns/anti-patterns.md",
+      "reason": "find_knowledge for USER-PROFILE-GET"
+    }
+  ],
+  "gate1": "approved",
+  "gate2": "approved",
+  "gate1_note": "smoke gate1",
+  "gate2_note": "smoke gate2",
+  "model": "deterministic-workflow-runner",
+  "timestamp": "2026-08-01T23:15:55.638685+00:00",
+  "completed_at": "2026-08-01T23:15:55.638991+00:00",
+  "status": "completed",
+  "analysis": {
+    "request_id": "USER-PROFILE-GET",
+    "summary": "Profile retrieval via AuthApiClient.GetProfile; feature/steps may already exist post Fase 0. Profile.feature already present \u2014 treat as already covered unless extending.",
+    "proposed_coverage": {
+      "positive": [
+        "Valid access token returns lab user profile"
+      ],
+      "negative": [
+        "Invalid/empty token \u2192 profile absent"
+      ],
+      "edge": [
+        "Token from refresh still valid by lab-token- prefix"
+      ]
+    },
+    "assumptions": [
+      "FakeAuthApi models unauthorized as null"
+    ],
+    "open_questions": [],
+    "out_of_scope": [
+      "Patches in this workflow phase",
+      "Jira/XRay live integration"
+    ],
+    "evidence": [
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/UserProfileValidator.cs",
+        "reason": "find_existing_validator terms=GetProfile,UserProfile,Profile"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/UserProfileSteps.cs",
+        "reason": "find_reusable_step terms=GetProfile,UserProfile,Profile"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Profile.feature",
+        "reason": "search_similar_automation terms=GetProfile,UserProfile,Profile"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "reason": "inspect_service_contract terms=GetProfile,UserProfile,Profile"
+      },
+      {
+        "path": "knowledge/framework/component-catalog.md",
+        "reason": "find_knowledge for USER-PROFILE-GET"
+      },
+      {
+        "path": "knowledge/examples/retrieval-seeds.json",
+        "reason": "find_knowledge for USER-PROFILE-GET"
+      },
+      {
+        "path": "knowledge/examples/retrieval-seeds.md",
+        "reason": "find_knowledge for USER-PROFILE-GET"
+      },
+      {
+        "path": "prompts/examples/approved/03-duplicate-builder-reject.md",
+        "reason": "find_knowledge for USER-PROFILE-GET"
+      },
+      {
+        "path": "knowledge/anti-patterns/anti-patterns.md",
+        "reason": "find_knowledge for USER-PROFILE-GET"
+      }
+    ],
+    "meta": {
+      "target": "labs/csharp-reqnroll-lab",
+      "domain": "Auth",
+      "contract": "analysis.v1",
+      "already_covered": true,
+      "producer": "workflow_runner.deterministic_analyst"
+    }
+  },
+  "plan": {
+    "request_id": "USER-PROFILE-GET",
+    "reuse": {
+      "builders": [],
+      "validators": [
+        "UserProfileValidator"
+      ],
+      "steps": [
+        "UserProfileSteps"
+      ],
+      "pages_or_clients": [
+        "AuthApiClient"
+      ]
+    },
+    "create_only_if_needed": [],
+    "files_likely_affected": [],
+    "risks": [
+      {
+        "id": "R-DUPLICATE",
+        "severity": "high",
+        "note": "Creating parallel components would violate Reuse Before Create"
+      }
+    ],
+    "implementation_steps": [
+      "Confirm existing coverage with tools_runner / dotnet test",
+      "Mark request Already Covered",
+      "Do not create new Builder/Validator/Feature"
+    ],
+    "evidence": [
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/UserProfileValidator.cs",
+        "reason": "find_existing_validator terms=GetProfile,UserProfile,Profile"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/UserProfileSteps.cs",
+        "reason": "find_reusable_step terms=GetProfile,UserProfile,Profile"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Profile.feature",
+        "reason": "search_similar_automation terms=GetProfile,UserProfile,Profile"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "reason": "inspect_service_contract terms=GetProfile,UserProfile,Profile"
+      },
+      {
+        "path": "knowledge/framework/component-catalog.md",
+        "reason": "find_knowledge for USER-PROFILE-GET"
+      },
+      {
+        "path": "knowledge/examples/retrieval-seeds.json",
+        "reason": "find_knowledge for USER-PROFILE-GET"
+      },
+      {
+        "path": "knowledge/examples/retrieval-seeds.md",
+        "reason": "find_knowledge for USER-PROFILE-GET"
+      },
+      {
+        "path": "prompts/examples/approved/03-duplicate-builder-reject.md",
+        "reason": "find_knowledge for USER-PROFILE-GET"
+      },
+      {
+        "path": "knowledge/anti-patterns/anti-patterns.md",
+        "reason": "find_knowledge for USER-PROFILE-GET"
+      }
+    ],
+    "policy_checks": {
+      "searched_before_create": true,
+      "no_critical_files_without_flag": true
+    },
+    "meta": {
+      "target": "labs/csharp-reqnroll-lab",
+      "domain": "Auth",
+      "contract": "plan.v1",
+      "analysis_request_id": "USER-PROFILE-GET",
+      "already_covered": true,
+      "producer": "workflow_runner.deterministic_planner"
+    }
+  },
+  "elapsed_ms": 4.3
+}

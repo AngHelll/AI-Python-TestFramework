@@ -1,0 +1,132 @@
+{
+  "passed": 5,
+  "total": 5,
+  "category": null,
+  "cases": [
+    {
+      "source": "knowledge/examples/review/uc05-duplicate-builder.diff",
+      "finding_count": 1,
+      "findings": [
+        {
+          "code": "DUP-BUILDER",
+          "category": "duplication",
+          "severity": "high",
+          "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Builders/LoginPayloadBuilder.cs",
+          "line": 8,
+          "message": "New builder LoginPayloadBuilder looks like a duplicate of catalog ['LoginRequestBuilder']; prefer LoginRequestBuilder.",
+          "snippet": "public sealed class LoginPayloadBuilder"
+        }
+      ],
+      "codes": [
+        "DUP-BUILDER"
+      ],
+      "fixture_id": "uc05",
+      "uc": "UC-05",
+      "category_filter": null,
+      "expected_codes": [
+        "DUP-BUILDER"
+      ],
+      "pass": true
+    },
+    {
+      "source": "knowledge/examples/review/uc06-thread-sleep.diff",
+      "finding_count": 1,
+      "findings": [
+        {
+          "code": "STAB-SLEEP-CS",
+          "category": "stability",
+          "severity": "high",
+          "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs",
+          "line": 31,
+          "message": "Thread.Sleep is forbidden on automation paths (AP-03).",
+          "snippet": "System.Threading.Thread.Sleep(2000); // \"wait for portal\" \u2014 should be flagged"
+        }
+      ],
+      "codes": [
+        "STAB-SLEEP-CS"
+      ],
+      "fixture_id": "uc06",
+      "uc": "UC-06",
+      "category_filter": null,
+      "expected_codes": [
+        "STAB-SLEEP-CS"
+      ],
+      "pass": true
+    },
+    {
+      "source": "knowledge/examples/review/uc06b-python-sleep.diff",
+      "finding_count": 1,
+      "findings": [
+        {
+          "code": "STAB-SLEEP-PY",
+          "category": "stability",
+          "severity": "high",
+          "path": "features/steps/login_steps.py",
+          "line": 11,
+          "message": "time.sleep is forbidden on automation paths (AP-03).",
+          "snippet": "time.sleep(2)  # bad wait \u2014 UC stability python"
+        }
+      ],
+      "codes": [
+        "STAB-SLEEP-PY"
+      ],
+      "fixture_id": "uc06b",
+      "uc": "UC-06b",
+      "category_filter": null,
+      "expected_codes": [
+        "STAB-SLEEP-PY"
+      ],
+      "pass": true
+    },
+    {
+      "source": "knowledge/examples/review/uc07-missing-xray-tags.diff",
+      "finding_count": 1,
+      "findings": [
+        {
+          "code": "XRAY-MISSING-TAG",
+          "category": "xray",
+          "severity": "medium",
+          "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/OrphanLogin.feature",
+          "line": 6,
+          "message": "Scenario 'Somebody logs in somehow' lacks @AUTH-*/@USER-*/@TEST_* story tag.",
+          "snippet": "Scenario: Somebody logs in somehow"
+        }
+      ],
+      "codes": [
+        "XRAY-MISSING-TAG"
+      ],
+      "fixture_id": "uc07",
+      "uc": "UC-07",
+      "category_filter": null,
+      "expected_codes": [
+        "XRAY-MISSING-TAG"
+      ],
+      "pass": true
+    },
+    {
+      "source": "knowledge/examples/review/uc-sec-hardcoded-secret.diff",
+      "finding_count": 1,
+      "findings": [
+        {
+          "code": "SEC-SECRET",
+          "category": "security",
+          "severity": "high",
+          "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/AccessTokenData.cs",
+          "line": 13,
+          "message": "Possible hard-coded secret/password literal (AP-05).",
+          "snippet": "private const string password = \"SuperSecretProd!\";"
+        }
+      ],
+      "codes": [
+        "SEC-SECRET"
+      ],
+      "fixture_id": "uc-sec",
+      "uc": "UC-SEC",
+      "category_filter": null,
+      "expected_codes": [
+        "SEC-SECRET"
+      ],
+      "pass": true
+    }
+  ]
+}

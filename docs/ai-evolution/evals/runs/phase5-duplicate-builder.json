@@ -1,0 +1,325 @@
+{
+  "contract": "workflow-run.v1",
+  "run_id": "20260801T231555Z-2234d057",
+  "request_id": "AUTH-DUPLICATE-BUILDER",
+  "target": "csharp",
+  "domain": "Auth",
+  "description": "Need a new builder to assemble the Auth login payload.",
+  "constraints": "Reuse existing components; plan only.",
+  "stages": [
+    "context",
+    "analysis",
+    "gate1",
+    "plan",
+    "gate2",
+    "delivered"
+  ],
+  "tools_invoked": [
+    {
+      "tool": "find_existing_builder",
+      "invocation_id": "20260801T231555Z-98e71cb9",
+      "params": {
+        "target": "csharp",
+        "terms": "LoginRequestBuilder,login",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 1,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-98e71cb9.json"
+    },
+    {
+      "tool": "find_existing_validator",
+      "invocation_id": "20260801T231555Z-88a1e8a8",
+      "params": {
+        "target": "csharp",
+        "terms": "LoginRequestBuilder,login",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 1,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-88a1e8a8.json"
+    },
+    {
+      "tool": "find_reusable_step",
+      "invocation_id": "20260801T231555Z-7d7f3881",
+      "params": {
+        "target": "csharp",
+        "terms": "LoginRequestBuilder,login",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 2,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-7d7f3881.json"
+    },
+    {
+      "tool": "search_similar_automation",
+      "invocation_id": "20260801T231555Z-2c0875a6",
+      "params": {
+        "target": "csharp",
+        "terms": "LoginRequestBuilder,login",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 4,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-2c0875a6.json"
+    },
+    {
+      "tool": "inspect_service_contract",
+      "invocation_id": "20260801T231555Z-827141fc",
+      "params": {
+        "target": "csharp",
+        "terms": "LoginRequestBuilder,login",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 2,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-827141fc.json"
+    },
+    {
+      "tool": "find_knowledge",
+      "invocation_id": "20260801T231555Z-d31355d7",
+      "params": {
+        "target": "knowledge",
+        "terms": "component-catalog,LoginRequestBuilder",
+        "limit": 5
+      },
+      "ok": true,
+      "hit_count": 5,
+      "audit_path": ".forgeone/runs/tools/20260801T231555Z-d31355d7.json"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Builders/LoginRequestBuilder.cs",
+      "reason": "find_existing_builder terms=LoginRequestBuilder,login"
+    },
+    {
+      "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/LoginResponseValidator.cs",
+      "reason": "find_existing_validator terms=LoginRequestBuilder,login"
+    },
+    {
+      "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs",
+      "reason": "find_reusable_step terms=LoginRequestBuilder,login"
+    },
+    {
+      "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs",
+      "reason": "find_reusable_step terms=LoginRequestBuilder,login"
+    },
+    {
+      "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature",
+      "reason": "search_similar_automation terms=LoginRequestBuilder,login"
+    },
+    {
+      "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/TokenRefresh.feature",
+      "reason": "search_similar_automation terms=LoginRequestBuilder,login"
+    },
+    {
+      "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Pages/LoginPage.cs",
+      "reason": "inspect_service_contract terms=LoginRequestBuilder,login"
+    },
+    {
+      "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+      "reason": "inspect_service_contract terms=LoginRequestBuilder,login"
+    },
+    {
+      "path": "knowledge/framework/component-catalog.md",
+      "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+    },
+    {
+      "path": "knowledge/examples/retrieval-seeds.json",
+      "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+    },
+    {
+      "path": "knowledge/examples/retrieval-seeds.md",
+      "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+    },
+    {
+      "path": "prompts/examples/approved/03-duplicate-builder-reject.md",
+      "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+    },
+    {
+      "path": "knowledge/anti-patterns/anti-patterns.md",
+      "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+    }
+  ],
+  "gate1": "approved",
+  "gate2": "approved",
+  "gate1_note": "auto-gates: analysis has evidence",
+  "gate2_note": "auto-gates: searched_before_create=true",
+  "model": "deterministic-workflow-runner",
+  "timestamp": "2026-08-01T23:15:55.628663+00:00",
+  "completed_at": "2026-08-01T23:15:55.628666+00:00",
+  "status": "completed",
+  "analysis": {
+    "request_id": "AUTH-DUPLICATE-BUILDER",
+    "summary": "Request asks for a new login payload builder, but LoginRequestBuilder already exists in the C# lab catalog.",
+    "proposed_coverage": {
+      "positive": [],
+      "negative": [],
+      "edge": []
+    },
+    "assumptions": [
+      "Intent is login request construction, not a new Auth domain"
+    ],
+    "open_questions": [
+      "Is there a field missing on LoginRequestBuilder that justifies extension?"
+    ],
+    "out_of_scope": [
+      "Patches in this workflow phase",
+      "Jira/XRay live integration"
+    ],
+    "evidence": [
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Builders/LoginRequestBuilder.cs",
+        "reason": "find_existing_builder terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/LoginResponseValidator.cs",
+        "reason": "find_existing_validator terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs",
+        "reason": "find_reusable_step terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs",
+        "reason": "find_reusable_step terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature",
+        "reason": "search_similar_automation terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/TokenRefresh.feature",
+        "reason": "search_similar_automation terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Pages/LoginPage.cs",
+        "reason": "inspect_service_contract terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "reason": "inspect_service_contract terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "knowledge/framework/component-catalog.md",
+        "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+      },
+      {
+        "path": "knowledge/examples/retrieval-seeds.json",
+        "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+      },
+      {
+        "path": "knowledge/examples/retrieval-seeds.md",
+        "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+      },
+      {
+        "path": "prompts/examples/approved/03-duplicate-builder-reject.md",
+        "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+      }
+    ],
+    "meta": {
+      "target": "labs/csharp-reqnroll-lab",
+      "domain": "Auth",
+      "contract": "analysis.v1",
+      "already_covered": true,
+      "producer": "workflow_runner.deterministic_analyst"
+    }
+  },
+  "plan": {
+    "request_id": "AUTH-DUPLICATE-BUILDER",
+    "reuse": {
+      "builders": [
+        "LoginRequestBuilder"
+      ],
+      "validators": [
+        "LoginResponseValidator"
+      ],
+      "steps": [
+        "LoginSteps",
+        "TokenRefreshSteps"
+      ],
+      "pages_or_clients": [
+        "AuthApiClient",
+        "LoginPage"
+      ]
+    },
+    "create_only_if_needed": [],
+    "files_likely_affected": [],
+    "risks": [
+      {
+        "id": "R-DUPLICATE",
+        "severity": "high",
+        "note": "Creating parallel components would violate Reuse Before Create"
+      }
+    ],
+    "implementation_steps": [
+      "Confirm existing coverage with tools_runner / dotnet test",
+      "Mark request Already Covered",
+      "Do not create new Builder/Validator/Feature"
+    ],
+    "evidence": [
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Builders/LoginRequestBuilder.cs",
+        "reason": "find_existing_builder terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/LoginResponseValidator.cs",
+        "reason": "find_existing_validator terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs",
+        "reason": "find_reusable_step terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/TokenRefreshSteps.cs",
+        "reason": "find_reusable_step terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature",
+        "reason": "search_similar_automation terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/TokenRefresh.feature",
+        "reason": "search_similar_automation terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Pages/LoginPage.cs",
+        "reason": "inspect_service_contract terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs",
+        "reason": "inspect_service_contract terms=LoginRequestBuilder,login"
+      },
+      {
+        "path": "knowledge/framework/component-catalog.md",
+        "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+      },
+      {
+        "path": "knowledge/examples/retrieval-seeds.json",
+        "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+      },
+      {
+        "path": "knowledge/examples/retrieval-seeds.md",
+        "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+      },
+      {
+        "path": "prompts/examples/approved/03-duplicate-builder-reject.md",
+        "reason": "find_knowledge for AUTH-DUPLICATE-BUILDER"
+      }
+    ],
+    "policy_checks": {
+      "searched_before_create": true,
+      "no_critical_files_without_flag": true
+    },
+    "meta": {
+      "target": "labs/csharp-reqnroll-lab",
+      "domain": "Auth",
+      "contract": "plan.v1",
+      "analysis_request_id": "AUTH-DUPLICATE-BUILDER",
+      "already_covered": true,
+      "producer": "workflow_runner.deterministic_planner"
+    }
+  },
+  "elapsed_ms": 5.8
+}

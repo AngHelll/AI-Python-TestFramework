@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "recipes": [
+    {
+      "id": "good-access-token-expired",
+      "diff": "tools/patches/v1/recipes/good-access-token-expired.diff",
+      "request_id": "PATCH-ACCESS-TOKEN-EXPIRED",
+      "description": "Add Expired access-token fixture constant (allowlisted, review-clean).",
+      "expect_review_clean": true,
+      "expect_tests_pass": true
+    },
+    {
+      "id": "good-refresh-token-expired",
+      "diff": "tools/patches/v1/recipes/good-refresh-token-expired.diff",
+      "request_id": "PATCH-REFRESH-TOKEN-EXPIRED",
+      "description": "Add Expired refresh-token fixture constant.",
+      "expect_review_clean": true,
+      "expect_tests_pass": true
+    },
+    {
+      "id": "bad-sleep-support",
+      "diff": "tools/patches/v1/recipes/bad-sleep-support.diff",
+      "request_id": "PATCH-BAD-SLEEP",
+      "description": "Intentionally introduces Thread.Sleep — must block Gate 3.",
+      "expect_review_clean": false,
+      "expect_block_codes": ["STAB-SLEEP-CS"]
+    }
+  ]
+}

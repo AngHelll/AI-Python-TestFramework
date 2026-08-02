@@ -1,0 +1,40 @@
+{
+  "version": "0.2.0",
+  "fixtures": [
+    {
+      "id": "uc05",
+      "path": "knowledge/examples/review/uc05-duplicate-builder.diff",
+      "uc": "UC-05",
+      "category": "duplication",
+      "expected_codes": ["DUP-BUILDER"]
+    },
+    {
+      "id": "uc06",
+      "path": "knowledge/examples/review/uc06-thread-sleep.diff",
+      "uc": "UC-06",
+      "category": "stability",
+      "expected_codes": ["STAB-SLEEP-CS"]
+    },
+    {
+      "id": "uc06b",
+      "path": "knowledge/examples/review/uc06b-python-sleep.diff",
+      "uc": "UC-06b",
+      "category": "stability",
+      "expected_codes": ["STAB-SLEEP-PY"]
+    },
+    {
+      "id": "uc07",
+      "path": "knowledge/examples/review/uc07-missing-xray-tags.diff",
+      "uc": "UC-07",
+      "category": "xray",
+      "expected_codes": ["XRAY-MISSING-TAG"]
+    },
+    {
+      "id": "uc-sec",
+      "path": "knowledge/examples/review/uc-sec-hardcoded-secret.diff",
+      "uc": "UC-SEC",
+      "category": "security",
+      "expected_codes": ["SEC-SECRET"]
+    }
+  ]
+}

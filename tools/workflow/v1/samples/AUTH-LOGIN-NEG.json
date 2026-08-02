@@ -1,0 +1,8 @@
+{
+  "request_id": "AUTH-LOGIN-NEG",
+  "target": "csharp",
+  "domain": "Auth",
+  "description": "Automate invalid login credentials and error message verification.",
+  "terms": "AUTH-LOGIN-NEG,invalid,Login",
+  "constraints": "Detect existing coverage; do not duplicate."
+}

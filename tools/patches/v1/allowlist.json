@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "mode": "controlled_patch",
+  "description": "Phase 7 allowlist for proposed patches. Merge is never performed by tools.",
+  "allowed_path_prefixes": [
+    "labs/csharp-reqnroll-lab/src/AutomationLab/",
+    "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/"
+  ],
+  "denied_path_globs": [
+    "**/*.csproj",
+    "**/Directory.Build.*",
+    "**/.env",
+    "**/reqnroll.json",
+    "**/bin/**",
+    "**/obj/**"
+  ],
+  "denied_operations": [
+    "git_merge",
+    "git_push",
+    "delete_test_file",
+    "modify_secrets",
+    "change_package_references"
+  ],
+  "max_files_touched": 5,
+  "require_gate2_plan": true,
+  "require_review_clean_for_gate3": true,
+  "block_severities": ["high"]
+}

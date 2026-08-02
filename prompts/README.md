@@ -1,18 +1,19 @@
 # AI Context Directory
 
-**Complete technical reference for AI agents to understand and work with this automation framework.**
+**Technical reference + Phase 1 prompt contracts for AI-assisted automation.**
 
 ---
 
 ## Purpose
 
-This directory contains comprehensive framework documentation formatted specifically for AI agents (ChatGPT, Claude, Copilot, etc.) to:
+This directory contains framework documentation and **versioned prompt contracts** so agents can:
 
 - Understand framework architecture
-- Generate code following framework patterns
-- Debug issues
-- Add new features
-- Answer technical questions
+- Emit structured Analyst / Planner outputs (`analysis.v1` / `plan.v1`)
+- Generate code following framework patterns (after Gate 2)
+- Debug issues with framework-specific knowledge
+
+Evolution docs: `docs/ai-evolution/PHASE-1.md`.
 
 ---
 
@@ -20,20 +21,15 @@ This directory contains comprehensive framework documentation formatted specific
 
 ```
 prompts/
-├── context/                    # Technical knowledge base
-│   ├── FRAMEWORK.md           # Complete framework reference
-│   ├── architecture.md        # Architecture patterns and design
-│   ├── bdd_with_behave.md     # BDD implementation guide
-│   ├── best_practices.md      # Coding standards
-│   └── troubleshooting.md     # Problem-solving guide
-│
-├── examples/                   # Few-shot learning
-│   └── few_shot_examples.json # Q&A examples
-│
-├── system/                     # AI instructions
-│   └── system_prompt.md       # AI assistant behavior
-│
-└── README.md                   # This file
+├── contracts/                  # Phase 1 — analysis.v1 / plan.v1
+├── fragments/                  # Shared anti-patterns, gates, load order
+├── library/                    # Prompt inventory by purpose
+├── context/                    # Technical knowledge base (Python framework)
+├── examples/
+│   ├── few_shot_examples.json  # Legacy Q&A
+│   └── approved/               # Human-curated few-shots (FS-01…)
+├── system/                     # AI behavior instructions
+└── README.md
 ```
 
 ---

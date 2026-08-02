@@ -1,0 +1,47 @@
+# AI evolution smokes (Phases 4–7)
+# Keeps retrieval, tools, workflow, reviewer, and patch pipeline green.
+
+name: AI Evolution Smokes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "tools/**"
+      - "knowledge/**"
+      - "prompts/**"
+      - "docs/ai-evolution/**"
+      - "labs/csharp-reqnroll-lab/**"
+      - ".github/workflows/ai-evolution-smokes.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "tools/**"
+      - "knowledge/**"
+      - "prompts/**"
+      - "docs/ai-evolution/**"
+      - "labs/csharp-reqnroll-lab/**"
+      - ".github/workflows/ai-evolution-smokes.yml"
+  workflow_dispatch:
+
+jobs:
+  smokes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Run AI evolution smokes
+        run: bash scripts/run_all_smokes.sh

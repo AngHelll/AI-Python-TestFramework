@@ -1,0 +1,51 @@
+{
+  "contract": "mcp-lab-bridge.v1",
+  "registry_version": "1.1.0",
+  "tool_count": 11,
+  "blocked_names": [
+    "apply",
+    "apply_patch",
+    "arbitrary_shell",
+    "git_commit",
+    "git_push",
+    "write_files"
+  ],
+  "mcp_sdk": "PASS",
+  "checks": [
+    {
+      "name": "bridge_lists_registry",
+      "ok": true,
+      "detail": "count=11"
+    },
+    {
+      "name": "bridge_find_builder",
+      "ok": true,
+      "detail": "20260801T215642Z-4527b0e5"
+    },
+    {
+      "name": "bridge_review_uc05",
+      "ok": true,
+      "detail": "['DUP-BUILDER']"
+    },
+    {
+      "name": "bridge_blocks_apply",
+      "ok": true,
+      "detail": "apply_patch"
+    },
+    {
+      "name": "bridge_rejects_unknown",
+      "ok": true,
+      "detail": "not_a_real_tool"
+    },
+    {
+      "name": "mcp_sdk_tools",
+      "ok": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "mcp_choose_gate2_recipe",
+      "ok": true,
+      "detail": "skip"
+    }
+  ]
+}

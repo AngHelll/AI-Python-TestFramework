@@ -1,0 +1,166 @@
+{
+  "version": "0.2.0",
+  "description": "Retrieval golden queries for find_existing_components / Planner context",
+  "cases": [
+    {
+      "id": "login-request-builder",
+      "query": "login request builder",
+      "target": "csharp",
+      "terms": ["LoginRequestBuilder", "Builder"],
+      "expected_paths": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Builders/LoginRequestBuilder.cs"
+      ],
+      "eval_ref": "001 / FS-03"
+    },
+    {
+      "id": "refresh-token-api",
+      "query": "refresh token API",
+      "target": "csharp",
+      "terms": ["RefreshToken", "refresh"],
+      "expected_paths": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs"
+      ],
+      "eval_ref": "001"
+    },
+    {
+      "id": "token-refresh-feature",
+      "query": "token refresh feature",
+      "target": "csharp",
+      "terms": ["TokenRefresh", "AUTH-TOKEN-REFRESH"],
+      "expected_paths": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/TokenRefresh.feature"
+      ],
+      "eval_ref": "001"
+    },
+    {
+      "id": "invalid-login-scenario",
+      "query": "invalid login scenario",
+      "target": "csharp",
+      "terms": ["AUTH-LOGIN-NEG", "invalid"],
+      "expected_paths": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature"
+      ],
+      "eval_ref": "003"
+    },
+    {
+      "id": "get-user-profile",
+      "query": "get user profile",
+      "target": "csharp",
+      "terms": ["GetProfile", "UserProfile"],
+      "expected_paths": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Clients/AuthApiClient.cs"
+      ],
+      "eval_ref": "002"
+    },
+    {
+      "id": "user-profile-validator",
+      "query": "user profile validator",
+      "target": "csharp",
+      "terms": ["UserProfileValidator"],
+      "expected_paths": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/UserProfileValidator.cs"
+      ],
+      "eval_ref": "002"
+    },
+    {
+      "id": "anti-sleep-flakiness",
+      "query": "anti sleep flakiness",
+      "target": "knowledge",
+      "terms": ["Thread.Sleep", "AP-03", "sleep"],
+      "expected_paths": [
+        "knowledge/anti-patterns/anti-patterns.md"
+      ],
+      "eval_ref": "004"
+    },
+    {
+      "id": "component-catalog",
+      "query": "component catalog",
+      "target": "knowledge",
+      "terms": ["component-catalog", "Inventario de componentes reutilizables"],
+      "expected_paths": [
+        "knowledge/framework/component-catalog.md"
+      ],
+      "eval_ref": "all"
+    },
+    {
+      "id": "account-lockout",
+      "query": "account lockout scenario",
+      "target": "csharp",
+      "terms": ["AUTH-LOCKOUT", "ACCOUNT_LOCKED"],
+      "expected_paths": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Features/Login.feature"
+      ],
+      "eval_ref": "lockout"
+    },
+    {
+      "id": "login-response-validator",
+      "query": "login response validator",
+      "target": "csharp",
+      "terms": ["LoginResponseValidator"],
+      "expected_paths": [
+        "labs/csharp-reqnroll-lab/src/AutomationLab/Validators/LoginResponseValidator.cs"
+      ],
+      "eval_ref": "catalog"
+    },
+    {
+      "id": "refresh-token-data",
+      "query": "refresh token fixture data",
+      "target": "csharp",
+      "terms": ["RefreshTokenData"],
+      "expected_paths": [
+        "labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs"
+      ],
+      "eval_ref": "refresh"
+    },
+    {
+      "id": "python-login-page",
+      "query": "python login page object",
+      "target": "python",
+      "terms": ["LoginPage", "login_page"],
+      "expected_paths": [
+        "pages/login_page.py"
+      ],
+      "eval_ref": "python"
+    },
+    {
+      "id": "python-login-feature",
+      "query": "python login behave feature",
+      "target": "python",
+      "terms": ["User Login", "login.feature"],
+      "expected_paths": [
+        "features/login.feature"
+      ],
+      "eval_ref": "python"
+    },
+    {
+      "id": "agent-contracts",
+      "query": "agent role contracts",
+      "target": "knowledge",
+      "terms": ["Agent contracts", "Analyst", "Builder"],
+      "expected_paths": [
+        "knowledge/agents/contracts.md"
+      ],
+      "eval_ref": "phase8"
+    },
+    {
+      "id": "analysis-contract",
+      "query": "analysis v1 contract",
+      "target": "knowledge",
+      "terms": ["analysis.v1", "already_covered"],
+      "expected_paths": [
+        "prompts/contracts/analysis.v1.yaml"
+      ],
+      "eval_ref": "phase1"
+    },
+    {
+      "id": "review-taxonomy",
+      "query": "review findings taxonomy",
+      "target": "knowledge",
+      "terms": ["DUP-BUILDER", "taxonomy"],
+      "expected_paths": [
+        "knowledge/examples/review/taxonomy.md"
+      ],
+      "eval_ref": "phase6"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+diff --git a/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs b/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs
+index 5555555..9999999 100644
+--- a/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs
++++ b/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/RefreshTokenData.cs
+@@ -9,4 +9,5 @@ public static class RefreshTokenData
+     public const string Valid = "lab-refresh-demo";
+     public const string Invalid = "not-a-refresh-token";
+     public const string Empty = "";
++    public const string Expired = "lab-refresh-expired-demo";
+ }

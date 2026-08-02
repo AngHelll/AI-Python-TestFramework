@@ -1,0 +1,36 @@
+diff --git a/labs/csharp-reqnroll-lab/src/AutomationLab/Builders/LoginPayloadBuilder.cs b/labs/csharp-reqnroll-lab/src/AutomationLab/Builders/LoginPayloadBuilder.cs
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/labs/csharp-reqnroll-lab/src/AutomationLab/Builders/LoginPayloadBuilder.cs
+@@ -0,0 +1,28 @@
++using AutomationLab.Models;
++
++namespace AutomationLab.Builders;
++
++/// <summary>
++/// NEW builder for login payloads (should be flagged as duplicate of LoginRequestBuilder).
++/// </summary>
++public sealed class LoginPayloadBuilder
++{
++    private string _username = "valid_user";
++    private string _password = "valid_password";
++
++    public LoginPayloadBuilder WithUsername(string username)
++    {
++        _username = username;
++        return this;
++    }
++
++    public LoginPayloadBuilder WithPassword(string password)
++    {
++        _password = password;
++        return this;
++    }
++
++    public LoginRequest Build() => new()
++    {
++        Username = _username,
++        Password = _password
++    };
++}

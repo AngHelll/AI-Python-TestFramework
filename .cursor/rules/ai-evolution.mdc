@@ -1,0 +1,17 @@
+---
+description: AI evolution roadmap — Analyst/Planner and dual lab
+globs:
+alwaysApply: false
+---
+
+# AI evolution
+
+When the user asks for analysis/planning of new automation, or mentions the roadmap / C# lab:
+
+1. Prefer `python3 scripts/workflow_runner.py start --from …` for traced runs
+2. Or use contracts `prompts/contracts/analysis.v1.yaml` / `plan.v1.yaml` with agents
+3. Invoke tools **only** via `python3 scripts/tools_runner.py invoke …`
+4. Prefer `bash scripts/run_all_smokes.sh` before merging evolution changes
+5. Patches: propose via recipe; apply only with `--gate3-approved`
+6. Roles: Analyst → Planner → Builder → Reviewer (`knowledge/agents/contracts.md`)
+7. Never merge/push from tools; Reviewer never auto-fixes

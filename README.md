@@ -38,6 +38,18 @@ This isn't just another test framework - it's **AI-enhanced** with ~70KB of tech
 
 ---
 
+## AI evolution lab (roadmap)
+
+Evolución de few-shot → plataforma gobernada (Analyst → Planner → Builder → Reviewer + gates).  
+Índice: [docs/ai-evolution/README.md](docs/ai-evolution/README.md) · Blueprint portable: [PORTABLE-BLUEPRINT.md](docs/ai-evolution/PORTABLE-BLUEPRINT.md).
+
+```bash
+bash scripts/run_all_smokes.sh
+cd labs/csharp-reqnroll-lab && dotnet test
+```
+
+Credenciales solo en local: `cp .env.example .env` (el archivo `.env` no se versiona).
+
 ## 🤖 AI Assistant Integration
 
 ### **What's Included:**

@@ -1,0 +1,10 @@
+diff --git a/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/AccessTokenData.cs b/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/AccessTokenData.cs
+index 5555555..6666666 100644
+--- a/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/AccessTokenData.cs
++++ b/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Support/AccessTokenData.cs
+@@ -10,4 +10,5 @@ public static class AccessTokenData
+     public const string FromRefresh = "lab-token-refreshed";
+     public const string Invalid = "bad-token";
+     public const string Empty = "";
++    public const string Expired = "lab-token-expired-demo";
+ }

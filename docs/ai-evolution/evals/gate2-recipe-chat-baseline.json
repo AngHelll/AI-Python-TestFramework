@@ -1,0 +1,40 @@
+{
+  "contract": "gate2-recipe-choice.v1",
+  "checks": [
+    {
+      "name": "recipes_align_registry",
+      "ok": true,
+      "detail": "recipes=['good-access-token-expired', 'good-refresh-token-expired', 'bad-sleep-support']"
+    },
+    {
+      "name": "skip_already_covered",
+      "ok": true,
+      "detail": "plan.meta.already_covered=true \u2014 Reuse Before Create; do not"
+    },
+    {
+      "name": "choose_access_token_recipe",
+      "ok": true,
+      "detail": "good-access-token-expired"
+    },
+    {
+      "name": "propose_awaiting_gate3",
+      "ok": true,
+      "detail": "20260801T202658Z-f229b0d2"
+    },
+    {
+      "name": "choose_refresh_recipe",
+      "ok": true,
+      "detail": "good-refresh-token-expired"
+    },
+    {
+      "name": "llm_optional",
+      "ok": true,
+      "detail": "SKIP (no OPENAI_API_KEY)"
+    },
+    {
+      "name": "no_apply_in_chooser",
+      "ok": true,
+      "detail": "propose only"
+    }
+  ]
+}

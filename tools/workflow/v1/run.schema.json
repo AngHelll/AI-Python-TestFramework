@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/ai-evolution/workflow-run.v1.json",
+  "title": "WorkflowRunV1",
+  "type": "object",
+  "required": [
+    "run_id",
+    "request_id",
+    "target",
+    "stages",
+    "tools_invoked",
+    "evidence",
+    "gate1",
+    "gate2",
+    "timestamp",
+    "status",
+    "analysis",
+    "plan"
+  ],
+  "properties": {
+    "run_id": { "type": "string" },
+    "request_id": { "type": "string" },
+    "target": { "type": "string", "enum": ["csharp", "python", "knowledge"] },
+    "domain": { "type": "string" },
+    "description": { "type": "string" },
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["context", "analysis", "gate1", "plan", "gate2", "delivered"]
+      }
+    },
+    "tools_invoked": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tool", "invocation_id", "params", "ok"],
+        "properties": {
+          "tool": { "type": "string" },
+          "invocation_id": { "type": "string" },
+          "params": { "type": "object" },
+          "ok": { "type": "boolean" },
+          "hit_count": { "type": ["integer", "null"] },
+          "audit_path": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "reason"],
+        "properties": {
+          "path": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "gate1": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+    "gate2": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+    "gate1_note": { "type": "string" },
+    "gate2_note": { "type": "string" },
+    "model": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "completed_at": { "type": ["string", "null"] },
+    "status": {
+      "type": "string",
+      "enum": ["running", "awaiting_gate1", "awaiting_gate2", "completed", "rejected", "failed"]
+    },
+    "analysis": { "type": ["object", "null"] },
+    "plan": { "type": ["object", "null"] },
+    "elapsed_ms": { "type": ["number", "null"] },
+    "contract": { "type": "string", "const": "workflow-run.v1" }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "request_id": "USER-PROFILE-GET",
+  "target": "csharp",
+  "domain": "Auth",
+  "description": "Get authenticated user profile with access token.",
+  "terms": "GetProfile,UserProfile,Profile",
+  "constraints": "API only; prefer AuthApiClient."
+}

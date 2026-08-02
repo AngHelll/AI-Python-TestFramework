@@ -1,0 +1,8 @@
+{
+  "request_id": "AUTH-DUPLICATE-BUILDER",
+  "target": "csharp",
+  "domain": "Auth",
+  "description": "Need a new builder to assemble the Auth login payload.",
+  "terms": "LoginRequestBuilder,login",
+  "constraints": "Reuse existing components; plan only."
+}

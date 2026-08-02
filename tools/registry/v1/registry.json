@@ -1,0 +1,172 @@
+{
+  "version": "1.1.0",
+  "mode": "read_only",
+  "description": "Phase 4+ tool registry — agents may only invoke tools listed here via scripts/tools_runner.py",
+  "allowed_targets": ["csharp", "python", "knowledge"],
+  "audit_dir": ".forgeone/runs/tools",
+  "denied": [
+    "arbitrary_shell",
+    "write_files",
+    "network",
+    "secrets_read",
+    "git_push",
+    "git_commit"
+  ],
+  "tools": [
+    {
+      "name": "find_existing_builder",
+      "description": "Find Builder types in the allowlisted target",
+      "handler": "find_components",
+      "kinds": ["builders"],
+      "permissions": ["read"],
+      "params": {
+        "target": { "type": "enum", "values": ["csharp", "python"], "required": true },
+        "terms": { "type": "string", "required": true, "max_length": 120 },
+        "limit": { "type": "int", "default": 5, "min": 1, "max": 20 }
+      }
+    },
+    {
+      "name": "find_existing_validator",
+      "description": "Find Validator types in the allowlisted target",
+      "handler": "find_components",
+      "kinds": ["validators"],
+      "permissions": ["read"],
+      "params": {
+        "target": { "type": "enum", "values": ["csharp", "python"], "required": true },
+        "terms": { "type": "string", "required": true, "max_length": 120 },
+        "limit": { "type": "int", "default": 5, "min": 1, "max": 20 }
+      }
+    },
+    {
+      "name": "find_reusable_step",
+      "description": "Find step definition classes / bindings",
+      "handler": "find_components",
+      "kinds": ["steps"],
+      "permissions": ["read"],
+      "params": {
+        "target": { "type": "enum", "values": ["csharp", "python"], "required": true },
+        "terms": { "type": "string", "required": true, "max_length": 120 },
+        "limit": { "type": "int", "default": 5, "min": 1, "max": 20 }
+      }
+    },
+    {
+      "name": "search_similar_automation",
+      "description": "Search feature files and related automation by terms/tags",
+      "handler": "find_components",
+      "kinds": ["features", "steps"],
+      "permissions": ["read"],
+      "params": {
+        "target": { "type": "enum", "values": ["csharp", "python"], "required": true },
+        "terms": { "type": "string", "required": true, "max_length": 120 },
+        "limit": { "type": "int", "default": 5, "min": 1, "max": 20 }
+      }
+    },
+    {
+      "name": "inspect_service_contract",
+      "description": "Locate API clients, fakes, and models",
+      "handler": "find_components",
+      "kinds": ["clients", "pages"],
+      "permissions": ["read"],
+      "params": {
+        "target": { "type": "enum", "values": ["csharp", "python"], "required": true },
+        "terms": { "type": "string", "required": true, "max_length": 120 },
+        "limit": { "type": "int", "default": 5, "min": 1, "max": 20 }
+      }
+    },
+    {
+      "name": "find_knowledge",
+      "description": "Search knowledge base, fragments, and approved examples",
+      "handler": "find_components",
+      "kinds": ["knowledge", "fragments", "contracts", "approved_examples"],
+      "permissions": ["read"],
+      "params": {
+        "target": { "type": "enum", "values": ["knowledge"], "required": true },
+        "terms": { "type": "string", "required": true, "max_length": 120 },
+        "limit": { "type": "int", "default": 5, "min": 1, "max": 20 }
+      }
+    },
+    {
+      "name": "detect_forbidden_patterns",
+      "description": "Scan allowlisted roots for Sleep, weak secrets patterns, etc.",
+      "handler": "detect_forbidden",
+      "permissions": ["read"],
+      "params": {
+        "target": { "type": "enum", "values": ["csharp", "python"], "required": true },
+        "limit": { "type": "int", "default": 50, "min": 1, "max": 200 }
+      }
+    },
+    {
+      "name": "validate_naming",
+      "description": "Check a proposed symbol name against lab conventions",
+      "handler": "validate_naming",
+      "permissions": ["read"],
+      "params": {
+        "kind": {
+          "type": "enum",
+          "values": ["builder", "validator", "steps", "feature"],
+          "required": true
+        },
+        "name": { "type": "string", "required": true, "max_length": 80 }
+      }
+    },
+    {
+      "name": "get_changed_files",
+      "description": "List changed files under allowlisted prefixes (git status porcelain)",
+      "handler": "get_changed_files",
+      "permissions": ["read"],
+      "params": {
+        "prefix": {
+          "type": "enum",
+          "values": [
+            "labs/csharp-reqnroll-lab",
+            "knowledge",
+            "prompts",
+            "features",
+            "pages",
+            "tests",
+            "scripts",
+            "docs/ai-evolution"
+          ],
+          "required": false,
+          "default": "labs/csharp-reqnroll-lab"
+        }
+      }
+    },
+    {
+      "name": "review_diff",
+      "description": "Read-only review of an allowlisted synthetic/unified diff (UC-05–07)",
+      "handler": "review_diff",
+      "permissions": ["read"],
+      "params": {
+        "fixture": {
+          "type": "enum",
+          "values": ["uc05", "uc06", "uc06b", "uc07", "uc-sec"],
+          "required": false
+        },
+        "path": {
+          "type": "string",
+          "required": false,
+          "max_length": 200
+        },
+        "category": {
+          "type": "enum",
+          "values": ["duplication", "stability", "xray", "security", "architecture"],
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "propose_patch",
+      "description": "Create a controlled patch proposal from an allowlisted recipe (no apply/merge)",
+      "handler": "propose_patch",
+      "permissions": ["read"],
+      "params": {
+        "recipe": {
+          "type": "enum",
+          "values": ["good-access-token-expired", "good-refresh-token-expired", "bad-sleep-support"],
+          "required": true
+        }
+      }
+    }
+  ]
+}

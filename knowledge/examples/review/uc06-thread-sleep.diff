@@ -1,0 +1,12 @@
+diff --git a/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs b/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs
+index 2222222..3333333 100644
+--- a/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs
++++ b/labs/csharp-reqnroll-lab/tests/AutomationLab.Tests/Steps/LoginSteps.cs
+@@ -28,6 +28,7 @@ public sealed class LoginSteps
+     [When("I login as a valid user")]
+     public void WhenILoginAsAValidUser()
+     {
++        System.Threading.Thread.Sleep(2000); // "wait for portal" — should be flagged
+         var request = new LoginRequestBuilder().AsValidUser().Build();
+         _response = _loginPage.Submit(request);
+     }
